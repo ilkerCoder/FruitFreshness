@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "4df0b1cE92s=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\IlkerKamis\\Desktop\\FruitFreshnessDetector\\FruitFreshnessDetector.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\IlkerKamis\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\IlkerKamis\\.nuget\\packages\\microsoft.ml.onnxruntime\\1.21.0\\microsoft.ml.onnxruntime.1.21.0.nupkg.sha512",
+    "C:\\Users\\IlkerKamis\\.nuget\\packages\\microsoft.ml.onnxruntime.managed\\1.21.0\\microsoft.ml.onnxruntime.managed.1.21.0.nupkg.sha512",
+    "C:\\Users\\IlkerKamis\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
+    "C:\\Users\\IlkerKamis\\.nuget\\packages\\microsoft.win32.systemevents\\9.0.3\\microsoft.win32.systemevents.9.0.3.nupkg.sha512",
+    "C:\\Users\\IlkerKamis\\.nuget\\packages\\swashbuckle.aspnetcore\\6.6.2\\swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
+    "C:\\Users\\IlkerKamis\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.6.2\\swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
+    "C:\\Users\\IlkerKamis\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.6.2\\swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",
+    "C:\\Users\\IlkerKamis\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.6.2\\swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
+    "C:\\Users\\IlkerKamis\\.nuget\\packages\\system.drawing.common\\9.0.3\\system.drawing.common.9.0.3.nupkg.sha512",
+    "C:\\Users\\IlkerKamis\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\IlkerKamis\\.nuget\\packages\\system.numerics.tensors\\9.0.0\\system.numerics.tensors.9.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
