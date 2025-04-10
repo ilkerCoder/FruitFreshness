@@ -20,6 +20,10 @@ builder.Services.AddSingleton(sp =>
     var resnetPath = Path.Combine(Directory.GetCurrentDirectory(), "ML_Models", "resnet50_freshness.onnx");
     return new OnnxPredictionService(resnetPath);
 });
+builder.Services.AddCors();
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,6 +31,10 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    //Sadece devde CORS kapat
+    app.UseCors(policy =>
+        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()
+    );
 }
 
 app.UseHttpsRedirection();

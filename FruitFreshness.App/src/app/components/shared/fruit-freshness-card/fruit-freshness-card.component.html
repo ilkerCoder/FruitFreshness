@@ -1,0 +1,38 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div
+      class="card shadow-lg p-4 fade-in"
+      style="max-width: 600px; width: 100%; border-radius: 1rem;"
+    >
+      <h3 class="text-center mb-4">🍏 Fruit Freshness Detector</h3>
+  
+      <div class="mb-3">
+        <input
+          type="file"
+          class="form-control"
+          accept="image/*"
+          (change)="onFileSelected($event)"
+        />
+      </div>
+  
+      <button
+        class="btn btn-primary w-100 mb-3"
+        (click)="upload()"
+        [disabled]="!selectedFile || isLoading"
+      >
+        {{ isLoading ? 'Analiz Ediliyor...' : 'Analiz Et' }}
+      </button>
+  
+      <div *ngIf="imageResult" class="fade-in mt-4">
+        <h5>🧪 Sonuçlar</h5>
+        <p>✅ Sağlıklı: <strong>{{ healthyCount }}</strong></p>
+        <p>❌ Bozuk: <strong>{{ rottenCount }}</strong></p>
+  
+        <img
+          [src]="imageResult"
+          alt="Detection Result"
+          class="img-fluid rounded mt-3 border border-secondary"
+        />
+      </div>
+    </div>
+  </div>
+  
