@@ -10,6 +10,13 @@
     <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.21.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="System.Drawing.Common" Version="9.0.3" />
+    <PackageReference Include="YoloV8" Version="5.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Ml_Models\yolov8n.onnx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

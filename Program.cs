@@ -11,7 +11,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton(sp =>
 {
     var modelPath = Path.Combine(Directory.GetCurrentDirectory(), "ML_Models", "resnet50_freshness.onnx");
-    return new OnnxPredictionService(modelPath);
+    var resnetPath = Path.Combine(Directory.GetCurrentDirectory(), "ML_Models", "resnet50_freshness.onnx");
+    var yoloPath = Path.Combine(Directory.GetCurrentDirectory(), "ML_Models", "yolov8n.onnx");
+    return new DetectionService(resnetPath, yoloPath);
 });
 var app = builder.Build();
 

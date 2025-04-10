@@ -10,20 +10,53 @@ namespace FruitFreshnessDetector.Controllers
     {
         private readonly OnnxPredictionService _predictor;
 
-        public PredictionController(OnnxPredictionService predictor)
+        private readonly DetectionService _detectionService;
+
+        public PredictionController(DetectionService detectionService, OnnxPredictionService predictionService)
         {
-            _predictor = predictor;
+            _predictor = predictionService;
+            _detectionService = detectionService;
         }
 
         [HttpPost("predict")]
-        public async Task<IActionResult> Predict(IFormFile image)
+        public async Task<IActionResult> Predict(IFormFile singleImage)
+        {
+            if (singleImage == null || singleImage.Length == 0)
+                return BadRequest("No singleImage uploaded.");
+
+            using var stream = singleImage.OpenReadStream();
+            var result = _predictor.Predict(stream);
+            return Ok(new { prediction = result });
+        }
+
+        [HttpPost("detect")]
+        public async Task<IActionResult> Detect(IFormFile image)
         {
             if (image == null || image.Length == 0)
                 return BadRequest("No image uploaded.");
 
-            using var stream = image.OpenReadStream();
-            var result = _predictor.Predict(stream);
-            return Ok(new { prediction = result });
+            // Görseli geçici olarak kaydet
+            var uploadsDir = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+            Directory.CreateDirectory(uploadsDir);
+
+            var imagePath = Path.Combine(uploadsDir, image.FileName);
+
+            using (var stream = new FileStream(imagePath, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
+            }
+
+            // Tespit ve sınıflandırma işlemi
+            var (base64Image, healthy, rotten) = _detectionService.PredictFromImage(imagePath);
+
+            return Ok(new
+            {
+                healthyCount = healthy,
+                rottenCount = rotten,
+                annotatedImageBase64 = base64Image
+            });
         }
+
+
     }
 }
