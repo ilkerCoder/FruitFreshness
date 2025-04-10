@@ -12,10 +12,11 @@ namespace FruitFreshnessDetector.Controllers
 
         private readonly DetectionService _detectionService;
 
-        public PredictionController(DetectionService detectionService, OnnxPredictionService predictionService)
+        public PredictionController(DetectionService detectionService , OnnxPredictionService predictor)
         {
-            _predictor = predictionService;
+            _predictor = predictor;
             _detectionService = detectionService;
+            _predictor = predictor;
         }
 
         [HttpPost("predict")]

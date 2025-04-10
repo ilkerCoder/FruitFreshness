@@ -15,6 +15,11 @@ builder.Services.AddSingleton(sp =>
     var yoloPath = Path.Combine(Directory.GetCurrentDirectory(), "ML_Models", "yolov8n.onnx");
     return new DetectionService(resnetPath, yoloPath);
 });
+builder.Services.AddSingleton(sp =>
+{
+    var resnetPath = Path.Combine(Directory.GetCurrentDirectory(), "ML_Models", "resnet50_freshness.onnx");
+    return new OnnxPredictionService(resnetPath);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
