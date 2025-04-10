@@ -1,0 +1,21 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*FruitFreshnessDetector
+
+# ASP.NET generated folders
+Uploads/
+Outputs/
+
+# Logs & temporary
+*.log
+*.tmp
+
+# Resharper / Rider
+.idea/
+*.DotSettings.user
