@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-fruit-freshness-card',
@@ -29,7 +30,7 @@ export class FruitFreshnessCard {
     formData.append('image', this.selectedFile);
 
     this.isLoading = true;
-    this.http.post<any>('${environment.apiUrl}', formData).subscribe({
+    this.http.post<any>(`${environment.apiUrl}`, formData).subscribe({
       next: (res) => {
         this.imageResult = res.annotatedImageBase64;
         console.log(res.annotatedImageBase64);
