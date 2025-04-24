@@ -29,7 +29,7 @@ export class FruitFreshnessCard {
     formData.append('image', this.selectedFile);
 
     this.isLoading = true;
-    this.http.post<any>('https://localhost:3000/api/Prediction/detect', formData).subscribe({
+    this.http.post<any>('${environment.apiUrl}', formData).subscribe({
       next: (res) => {
         this.imageResult = res.annotatedImageBase64;
         console.log(res.annotatedImageBase64);
