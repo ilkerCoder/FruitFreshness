@@ -33,8 +33,7 @@ namespace FruitFreshnessDetector.Controllers
         }
 
         [HttpPost("detect")]
-        [AllowAnonymous]  
-
+        [AllowAnonymous]
         public async Task<IActionResult> Detect(IFormFile image)
         {
             if (image == null || image.Length == 0)
