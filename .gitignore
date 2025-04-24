@@ -19,3 +19,6 @@ Outputs/
 # Resharper / Rider
 .idea/
 *.DotSettings.user
+
+# tar files, e.t.c 
+./fruit-backend.tar
