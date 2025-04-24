@@ -17,6 +17,7 @@ WORKDIR /app
 
 # Derlenmiş uygulamayı ve model klasörünü kopyala
 COPY --from=build /app/publish ./
+COPY ./Fonts ./Fonts
 COPY ./Ml_Models ./Ml_Models
 
 # Uygulama giriş noktası
