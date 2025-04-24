@@ -25,5 +25,5 @@ WORKDIR /app
 # Bir önceki build aşamasındaki derlenmiş dosyaları (/app/publish) al,
 # ve şu anda bulunduğumuz /app klasörüne kopyala.
 COPY --from=build /app/publish .
-COPY ./ML_Models ./ML_Models 
+COPY ./Ml_Models ./Ml_Models 
 ENTRYPOINT ["dotnet", "FruitFreshnessDetector.dll"]
