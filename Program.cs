@@ -31,7 +31,7 @@ builder.Services.AddCors(options =>
 
 });
 
-builder.WebHost.UseUrls("http://0.0.0.0:80");
+//builder.WebHost.UseUrls("http://0.0.0.0:80");
 
 
 var app = builder.Build();
@@ -47,7 +47,11 @@ if (app.Environment.IsDevelopment())
     );
 }
 app.UseSwagger();
-
+app.UseSwaggerUI();
+//Sadece devde CORS kapat
+app.UseCors(policy =>
+    policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()
+);
 
 //app.UseHttpsRedirection();
 
