@@ -22,7 +22,7 @@ builder.Services.AddSingleton(sp =>
 });
 builder.Services.AddCors();
 
-
+builder.WebHost.UseUrls("http://0.0.0.0:80");
 
 var app = builder.Build();
 
