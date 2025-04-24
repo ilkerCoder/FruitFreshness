@@ -20,10 +20,17 @@ RUN dotnet restore
 RUN dotnet publish -c Release -o /app/publish
 
 # Runtime image
+# Runtime image
 FROM base AS final
 WORKDIR /app
-# Bir önceki build aşamasındaki derlenmiş dosyaları (/app/publish) al,
-# ve şu anda bulunduğumuz /app klasörüne kopyala.
-COPY --from=build /app/publish .
-COPY ./Ml_Models ./Ml_Models 
+
+# GDI+ desteği için libgdiplus kurulumu (bitmap, image vs için şart)
+RUN apt-get update && \
+    apt-get install -y libgdiplus && \
+    ln -s /usr/lib/libgdiplus.so /usr/lib/libgdiplus.so
+
+# Derlenmiş uygulamayı kopyala
+COPY --from=build /app/publish ./
+COPY ./Ml_Models ./Ml_Models
+
 ENTRYPOINT ["dotnet", "FruitFreshnessDetector.dll"]
