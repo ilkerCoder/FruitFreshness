@@ -21,4 +21,4 @@ Outputs/
 *.DotSettings.user
 
 # tar files, e.t.c 
-./fruit-backend.tar
+fruit-backend.tar
