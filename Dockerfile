@@ -27,7 +27,7 @@ WORKDIR /app
 # GDI+ desteği için libgdiplus kurulumu (bitmap, image vs için şart)
 RUN apt-get update && \
     apt-get install -y libgdiplus && \
-    ln -s /usr/lib/libgdiplus.so /usr/lib/libgdiplus.so
+    [ -f /usr/lib/libgdiplus.so ] || ln -s /usr/lib/libgdiplus.so /usr/lib/libgdiplus.so
 
 # Derlenmiş uygulamayı kopyala
 COPY --from=build /app/publish ./
