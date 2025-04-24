@@ -20,9 +20,16 @@ builder.Services.AddSingleton(sp =>
     var resnetPath = Path.Combine(Directory.GetCurrentDirectory(), "ML_Models", "resnet50_freshness.onnx");
     return new OnnxPredictionService(resnetPath);
 });
-builder.Services.AddCors();
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
-builder.WebHost.UseUrls("http://0.0.0.0:80");
 
 var app = builder.Build();
 
