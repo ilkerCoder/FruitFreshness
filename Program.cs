@@ -46,6 +46,8 @@ if (app.Environment.IsDevelopment())
         policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()
     );
 }
+app.UseSwagger();
+
 
 //app.UseHttpsRedirection();
 
