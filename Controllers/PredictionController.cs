@@ -1,4 +1,5 @@
 ﻿using FruitFreshnessDetector.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +21,7 @@ namespace FruitFreshnessDetector.Controllers
         }
 
         [HttpPost("predict")]
+        [AllowAnonymous]
         public async Task<IActionResult> Predict(IFormFile singleImage)
         {
             if (singleImage == null || singleImage.Length == 0)
@@ -31,6 +33,8 @@ namespace FruitFreshnessDetector.Controllers
         }
 
         [HttpPost("detect")]
+        [AllowAnonymous]  
+
         public async Task<IActionResult> Detect(IFormFile image)
         {
             if (image == null || image.Length == 0)
