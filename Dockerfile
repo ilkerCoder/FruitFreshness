@@ -27,4 +27,3 @@ WORKDIR /app
 COPY --from=build /app/publish .
 COPY ./ML_Models ./ML_Models 
 ENTRYPOINT ["dotnet", "FruitFreshnessDetector.dll"]
-build 
