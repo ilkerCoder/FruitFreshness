@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false , 
-  apiUrl: 'https://3000-friendly-giggle-w6pj6p4767fx6-3000.app.github.dev'
+  apiUrl: 'https://friendly-giggle-w6pj6p4767fx6-3000.app.github.dev/'
 
 };
 
