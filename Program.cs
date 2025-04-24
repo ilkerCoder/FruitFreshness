@@ -2,6 +2,8 @@ using FruitFreshnessDetector.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.UseUrls("http://0.0.0.0:3000");
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -31,7 +33,6 @@ builder.Services.AddCors(options =>
 
 });
 
-//builder.WebHost.UseUrls("http://0.0.0.0:80");
 
 
 var app = builder.Build();
