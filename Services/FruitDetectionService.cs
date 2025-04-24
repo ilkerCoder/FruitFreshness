@@ -26,7 +26,7 @@ namespace FruitFreshnessDetector.Services
             using var image = Image.Load<Rgba32>(imagePath);
 
             int healthy = 0, rotten = 0;
-            var font = SystemFonts.CreateFont("Arial", 12);
+            var font = SystemFonts.CreateFont(SystemFonts.Families.First().Name, 12);
 
             foreach (var prediction in predictions)
             {
